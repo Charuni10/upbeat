@@ -1,0 +1,154 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100% !important;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #222;
+  font-family: monospace;
+  color: white;
+  height: 100%;
+}
+
+.b-chat {
+  width: 90%;
+  margin: 0 5%;
+  padding: 1em 0;
+  height: 100%;
+
+  &__container {
+    max-width: 500px;
+    margin: auto;
+    height: 100%;
+  }
+}
+
+#chat,
+.c-chat {
+  height: 100%;
+}
+
+.c-chat {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  font-size: 1em;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: visible;
+    height: 90%;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    .c-chat__item {
+      text-align: left;
+
+      &--human {
+        text-align: right;
+      }
+
+      margin-bottom: 1em;
+    }
+
+    .c-chat__message {
+      background: #fff;
+      color: #222;
+      padding: 0.6em;
+      border-radius: 10px;
+
+      .c-chat__item--human & {
+        background: #00ac92;
+        color: #fff;
+        border-radius: 10px;
+      }
+    }
+
+    .c-chat__action {
+      border-bottom: 1px dotted #fff;
+      color: #fff;
+      padding: 0.6em;
+      display: inline-block;
+      margin-right: 0.8em;
+
+      &:hover {
+        border-bottom: 1px dotted transparent;
+      }
+    }
+  }
+
+  &__form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    input {
+      padding: 1em;
+      width: calc(100% - 1.6em); /* Adjusted width */
+      border: none;
+      font-family: monospace;
+      border-bottom: 1px solid #fff;
+      background: none;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.4s;
+
+      &,
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      padding: 0.5em 1em; /* Added padding */
+      background-color: #00ac92;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 0.5em; /* Adjusted margin */
+    }
+  }
+
+  &--ready {
+    input {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
