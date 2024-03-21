@@ -1,8 +1,8 @@
 // imports
 import  { useState } from "react";
 import './login.css';
-// import login from '../images/login.svg';
-// import signup from '../images/signup.svg';
+import login from '../static/login.png';
+import signup from '../static/signup.png';
 import { useNavigate } from "react-router";
 import { AiOutlineUser } from "react-icons/ai";
 import{ RiLockPasswordLine } from "react-icons/ri";
@@ -87,7 +87,7 @@ export function Login(){
                 </div>
                                 {/* need to add an image here as svg */}
 
-                <img className="image"  alt=""/>
+                <img className="image" src={signup} alt=""/>
              </div>
              <div className="panel right-panel">
                 <div className="content">
@@ -96,7 +96,7 @@ export function Login(){
                     <button className="btn transparent" id="sign-in-btn" onClick={clickSignIn}>Sign In</button>
                 </div>
                 {/* need to add an image here as svg */}
-                <img className="image" alt=""/>
+                <img className="image" src={login} alt=""/>
              </div>
         </div>
     </div>

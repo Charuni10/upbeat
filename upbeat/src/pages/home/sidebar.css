@@ -1,0 +1,55 @@
+/* sidebar.css */
+.sidebar {
+    width: 70px; /* Small initial width */
+    height: 100vh;
+    background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+    color: white;
+    transition: width 0.3s ease; /* Add transition for smooth animation */
+    overflow: hidden; /* Hide overflowing text */
+    padding-left: 7px;
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-around; /* Center items vertically */
+  }
+  
+  .sidebar:hover {
+    width: 250px; /* Expand width on hover */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; /* Adjust padding to increase spacing */
+  }
+  
+  .icon {
+    margin-right: 10px; /* Adjust the spacing between icon and text */
+    opacity: 1; /* Initially show icons */
+    transition: opacity 0.3s ease; /* Add transition for smooth animation */
+  }
+  
+  .link-name {
+    opacity: 0; /* Initially hide link names */
+    transition: opacity 0.3s ease; /* Add transition for smooth animation */
+  }
+  
+  .sidebar:hover .link-name {
+    opacity: 1; /* Show link names when the sidebar is hovered over */
+    text-decoration: underline; /* Underline link names on hover */
+  }
+
+  .sidebar:hover li {
+    justify-content: center; /* Center items horizontally when sidebar is hovered */
+  }
+  
+  /* Remove this rule to ensure icons remain visible when sidebar is hovered */
+  /* .sidebar:hover .icon {
+    opacity: 0; 
+  } */
+  
