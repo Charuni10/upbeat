@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Input, Button, VStack, Text } from "@chakra-ui/react";
+import { Box, Input, VStack, Text } from "@chakra-ui/react";
+import { SendIcon } from "lucide-react";
 
 interface Message {
   text: string;
@@ -20,7 +21,16 @@ export const Chatbot: React.FC = () => {
 
   return (
     <VStack spacing={4} align="stretch" p={4} h="100vh" justify="flex-end">
-      <Box borderWidth="1px" borderRadius="lg" p={4} flex="1">
+      <Box
+        borderWidth="1px"
+        borderRadius="lg"
+        p={4}
+        flex="1"
+        bg="gray.100"
+        overflowY="auto"
+        maxHeight="70vh"
+        boxShadow="sm"
+      >
         {messages.map((message, index) => (
           <Text
             key={index}
@@ -31,7 +41,7 @@ export const Chatbot: React.FC = () => {
           </Text>
         ))}
       </Box>
-      <Box p={4} w="100%">
+      <Box p={4} w="100%" display="flex" alignItems="center">
         <Input
           placeholder="Type a message..."
           value={inputText}
@@ -41,22 +51,18 @@ export const Chatbot: React.FC = () => {
               handleSendMessage();
             }
           }}
-          p={10}
-          borderRadius={"50px"}
-          border={"2px solid black"}
-          w="70%"
-          mr={10}
+          borderRadius="50px"
+          border={"2px solid blue"}
+          padding={10}
+          mr={2}
+          w={"70%"}
         />
-        <Button
-          mt={2}
+        <SendIcon
+          size={"1.5rem"}
+          cursor="pointer"
           onClick={handleSendMessage}
-          p={10}
-          borderRadius={"10px"}
-          border={"2px solid black"}
-          w={100}
-        >
-          Send
-        </Button>
+          color="#41C9E2"
+        />
       </Box>
     </VStack>
   );
