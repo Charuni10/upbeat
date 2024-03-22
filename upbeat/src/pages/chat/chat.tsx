@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, Input, VStack, Text } from "@chakra-ui/react";
+import { Box, Input, Flex, Text, Spacer } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 
 interface Message {
+  id: number;
   text: string;
   isUser: boolean;
 }
@@ -13,35 +14,51 @@ export const Chatbot: React.FC = () => {
 
   const handleSendMessage = () => {
     if (inputText.trim() !== "") {
-      setMessages([...messages, { text: inputText, isUser: true }]);
-      // Here you can handle sending message to backend or any other logic
+      const newUserMessage: Message = {
+        id: messages.length,
+        text: inputText,
+        isUser: true,
+      };
+      const botResponse: Message = {
+        id: messages.length + 1,
+        text: "Welcome! How can I assist you?",
+        isUser: false,
+      };
+      setMessages([...messages, newUserMessage, botResponse]);
       setInputText("");
     }
   };
 
   return (
-    <VStack spacing={4} align="stretch" p={4} h="100vh" justify="flex-end">
+    <Box p={4} h="100vh" bg="#f4f4f4">  {/* Set full screen height */}
       <Box
         borderWidth="1px"
         borderRadius="lg"
         p={4}
-        flex="1"
-        bg="gray.100"
         overflowY="auto"
         maxHeight="70vh"
         boxShadow="sm"
+        style={{
+          backgroundColor: "#f4f4f4",
+          padding: "20px",
+        }}
       >
-        {messages.map((message, index) => (
-          <Text
-            key={index}
-            textAlign={message.isUser ? "right" : "left"}
-            fontStyle={message.isUser ? "italic" : "normal"}
-          >
-            {message.text}
-          </Text>
+        {messages.map((message) => (
+          <Flex key={message.id} justify={message.isUser ? "flex-end" : "flex-start"} mb={2}>
+            <Text
+              borderRadius="20px"
+              padding="10px 15px"
+              maxW="70%"
+              textAlign={message.isUser ? "right" : "left"}
+              backgroundColor={message.isUser ? "#41c9e2" : "#ccc"}
+              color={message.isUser ? "white" : "#333"}
+            >
+              {message.text}
+            </Text>
+          </Flex>
         ))}
       </Box>
-      <Box p={4} w="100%" display="flex" alignItems="center">
+      <Flex mt={4} pos="absolute" insetX="0" bottom="0" py={4} px={2}>  {/* Positioned at bottom */}
         <Input
           placeholder="Type a message..."
           value={inputText}
@@ -51,19 +68,23 @@ export const Chatbot: React.FC = () => {
               handleSendMessage();
             }
           }}
-          borderRadius="50px"
-          border={"2px solid blue"}
-          padding={10}
+          borderRadius="30px"
+          border="1px solid #41c9e2"
+          padding="12px"
+          fontSize="16px"
+          outline="none"
+          flex="1"
           mr={2}
-          w={"70%"}
+          m={20}
         />
         <SendIcon
           size={"1.5rem"}
           cursor="pointer"
           onClick={handleSendMessage}
-          color="#41C9E2"
+          style={{ color: "#41c9e2",marginTop:"10px" }}
+          
         />
-      </Box>
-    </VStack>
+      </Flex>
+    </Box>
   );
 };

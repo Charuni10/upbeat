@@ -16,7 +16,7 @@ export function Login(){
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const Username = "admin";
+    const Username = "username";
     const Password = "password";
     const [isSignUp,setIsSignUP] = useState<boolean>(false);
 
@@ -30,7 +30,7 @@ export function Login(){
 
     // authentication of login credentials
     const handleLogin = () => {
-        if (username === username && password === password) {
+        if (username === Username && password === Password) {
           
           navigate("/home");
         } else {
