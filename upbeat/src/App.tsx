@@ -3,6 +3,7 @@ import { Chatbot } from "./pages/chat/chat";
 import { Home } from "./pages/home/home";
 import { Login } from "./pages/login/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Profile } from "./pages/profile/profile";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/chat" element={<Chatbot />} />
+            <Route path="/profile" element={<Profile />}/>
           </Routes>
         </BrowserRouter>
       </div>

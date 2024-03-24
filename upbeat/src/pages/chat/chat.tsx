@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Input, Flex, Text, Spacer } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
+import Navbar from "../home/sidebar";
 
 interface Message {
   id: number;
@@ -30,7 +31,7 @@ export const Chatbot: React.FC = () => {
   };
 
   return (
-    <Box p={4} h="100vh" bg="#f4f4f4">  {/* Set full screen height */}
+    <><Navbar /><Box p={4} h="100vh" bg="#f4f4f4">  {/* Set full screen height */}
       <Box
         borderWidth="1px"
         borderRadius="lg"
@@ -67,7 +68,7 @@ export const Chatbot: React.FC = () => {
             if (e.key === "Enter") {
               handleSendMessage();
             }
-          }}
+          } }
           borderRadius="30px"
           border="1px solid #41c9e2"
           padding="12px"
@@ -75,16 +76,13 @@ export const Chatbot: React.FC = () => {
           outline="none"
           flex="1"
           mr={2}
-          m={20}
-        />
+          m={20} />
         <SendIcon
           size={"1.5rem"}
           cursor="pointer"
           onClick={handleSendMessage}
-          style={{ color: "#41c9e2",marginTop:"10px" }}
-          
-        />
+          style={{ color: "#41c9e2", marginTop: "10px" }} />
       </Flex>
-    </Box>
+    </Box></>
   );
 };
