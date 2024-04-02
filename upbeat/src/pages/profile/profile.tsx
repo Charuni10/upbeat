@@ -24,8 +24,6 @@ function ProfileFormPart1({ onNextClick }: { onNextClick: () => void }) {
             How do you want the report:
             <input type="checkbox" name="report" value="Weekly" />
             <label>Weekly</label>
-            <input type="checkbox" name="report" value="biWeekly" />
-            <label>Bi-weekly</label>
             <input type="checkbox" name="report" value="Monthly" />
             <label>Monthly</label>
           </label>
