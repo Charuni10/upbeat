@@ -1,38 +1,60 @@
 import React, { useState } from "react";
 import "./profile.css"; // Import CSS file for styling
+import { useNavigate } from "react-router";
 
 // Component for the first part of the profile form
-function ProfileFormPart1({ onNextClick }: { onNextClick: () => void }) {
+function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick: () => void; formData: any; setFormData: any }) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  
+  const handleGenderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const gender = e.target.value;
+    setFormData({ ...formData, gender });
+  };
   return (
     <div>
       <h2>Profile Up!</h2>
       <p>Complete your profile to unlock the full app experience!</p>
-        <form>
+      <form>
+      <label>
+          Gender:
           <label>
-            Name:
-            <input type="text" name="username" />
+            <input type="radio" name="gender" value="Male" checked={formData.gender === "Male"} onChange={handleGenderChange} />
+            Male
           </label>
           <label>
-            Phone Number:
-            <input type="text" name="phone_number" />
+            <input type="radio" name="gender" value="Female" checked={formData.gender === "Female"} onChange={handleGenderChange} />
+            Female
           </label>
           <label>
-            Date of Birth:
-            <input type="date" name="dob" />
+            <input type="radio" name="gender" value="Other" checked={formData.gender === "Other"} onChange={handleGenderChange} />
+            Other
           </label>
-          <label>
-            How do you want the report:
-            <input type="checkbox" name="report" value="Weekly" />
-            <label>Weekly</label>
-            <input type="checkbox" name="report" value="Monthly" />
-            <label>Monthly</label>
-          </label>
-          <label>Which time would you prefer to answer a few questions daily?</label>
-          <select>
-            <option>7 PM</option>
-            <option>8 PM</option>
-            <option>9 PM</option>
-          </select>
+        </label>
+        <label>
+          Date of Birth:
+          <input type="date" name="dob" value={formData.dob} onChange={handleChange} />
+        </label>
+        <label>
+          How do you want the report:
+          <input type="checkbox" name="test_timing" value="Weekly" onChange={handleChange} />
+          <label>Weekly</label>
+          <input type="checkbox" name="test_timing" value="Monthly" onChange={handleChange} />
+          <label>Monthly</label>
+        </label>
+        <label>Which time would you prefer to answer a few questions daily?</label>
+        <select name="appointment_frequency" value={formData.appointment_frequency} onChange={handleSelectChange}>
+        <option value="" disabled selected>Choose a time</option>
+          <option>7 PM</option>
+          <option>8 PM</option>
+          <option>9 PM</option>
+        </select>
       </form>
       <input type="button" value="Next" className="btn" onClick={onNextClick} />
     </div>
@@ -40,83 +62,130 @@ function ProfileFormPart1({ onNextClick }: { onNextClick: () => void }) {
 }
 
 // Component for the second part of the profile form
-function ProfileFormPart2({ onNextClick }: { onNextClick: () => void }) {
+function ProfileFormPart2({ onNextClick, onBackClick, formData, setFormData }: { onNextClick: () => void; onBackClick: () => void; formData: any; setFormData: any }) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <div>
       <h2>Add up</h2>
-      <p>Please fill any one of your emergency contact for us to connect when neccessary</p>
+      <p>Please fill any one of your emergency contact for us to connect when necessary</p>
       <form>
         <label>
           Emergency Contact Name:
-          <input type="text" name="emergency_contact_name" />
+          <input type="text" name="contact_name" value={formData.contact_name} onChange={handleChange} />
         </label>
         <label>
           Emergency Contact Phone Number:
-          <input type="text" name="emergency_contact_phone" />
+          <input type="text" name="emergency_contact_phone" value={formData.emergency_contact_phone} onChange={handleChange} />
         </label>
-        <input type="button" value="Next" className="btn" onClick={onNextClick} />
+        <label >
+          Relationship with the person:
+          <input type="text" name="contact_relationship" value={formData.contact_relationship} onChange={handleChange} />
 
-        {/* Add additional fields as needed */}
+        </label>
+        <input type="button" value="Back" className="btn" onClick={onBackClick} />
+        <input type="button" value="Next" className="btn" onClick={onNextClick} />
       </form>
     </div>
   );
 }
-function ProfileFormPart3() {
-    return (
-      <div>
-        <h2>Doctor's Information</h2>
-        <p>If you are reaching out to a pschycatrist, give us the details to send reports to him </p>
-        <form>
+
+function ProfileFormPart3({ onBackClick, formData, setFormData }: { onBackClick: () => void; formData: any; setFormData: any }) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    // Save form data to local storage
+    alert(JSON.stringify(formData));
+
+    localStorage.setItem("profileFormData", JSON.stringify(formData));
+    
+    // Navigate to the classify page
+    navigate("/classify");
+  };
+  
+
+  return (
+    <div>
+      <h2>Doctor's Information</h2>
+      <p>If you are reaching out to a psychiatrist, give us the details to send test_timings to him</p>
+      <form>
         <label>
-         Contact Name:
-          <input type="text" name="dr_name" />
+          Contact Name:
+          <input type="text" name="name" value={formData.name} onChange={handleChange} />
         </label>
         <label>
           Phone Number:
-          <input type="text" name="dr_phone" />
+          <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
         </label>
         <label>
           Clinic name:
-          <input type="text" name="dr_clinic_name" />
+          <input type="text" name="clinic_or_hospital_name" value={formData.clinic_or_hospital_name} onChange={handleChange} />
         </label>
         <label>
           Email address:
-          <input type="text" name="dr_email" />
+          <input type="text" name="email" value={formData.email} onChange={handleChange} />
         </label>
-        <input type="button" value="Submit" className="btn" />
+        <input type="button" value="Back" className="btn" onClick={onBackClick} />
+        <input type="button" value="Submit" className="btn" onClick={handleSubmit} />
+      </form>
+    </div>
+  );
+}
 
-        </form>
+export function Profile() {
+  const [showSecondPart, setShowSecondPart] = useState(false);
+  const [showThirdPart, setShowThirdPart] = useState(false);
+  // localStorage.clear();
+  const [formData, setFormData] = useState({
+    gender: "",
+    dob: "",
+    test_timing: "",
+    appointment_frequency: "",
+    contact_name: "",
+    emergency_contact_phone: "",
+    contact_relationship:"",
+    name: "",
+    phone_number: "",
+    clinic_or_hospital_name: "",
+    email: ""
+  });
+
+  const handleNextClick = () => {
+    if (!showSecondPart) {
+      setShowSecondPart(true); // Show the second part of the form when the "Next" button is clicked
+    } else if (!showThirdPart) {
+      setShowThirdPart(true); // Show the third part of the form when the "Next" button is clicked
+    }
+  };
+
+  const handleBackClick = () => {
+    if (showThirdPart) {
+      setShowThirdPart(false); // Go back to the second part of the form
+    } else if (showSecondPart) {
+      setShowSecondPart(false); // Go back to the first part of the form
+    }
+  };
+
+  return (
+    <div className="prof-container">
+      <div className="prof-left-section">{/* Content of the left section */}</div>
+      <div className="prof-right-section">
+        {/* Render either the first, second, or third part of the form based on the state */}
+        {showThirdPart ? (
+          <ProfileFormPart3 onBackClick={handleBackClick} formData={formData} setFormData={setFormData} />
+        ) : showSecondPart ? (
+          <ProfileFormPart2 onNextClick={handleNextClick} onBackClick={handleBackClick} formData={formData} setFormData={setFormData} />
+        ) : (
+          <ProfileFormPart1 onNextClick={handleNextClick} formData={formData} setFormData={setFormData} />
+        )}
       </div>
-    );
-  }
-  
-  export function Profile() {
-    const [showSecondPart, setShowSecondPart] = useState(false);
-    const [showThirdPart, setShowThirdPart] = useState(false);
-  
-    const handleNextClick = () => {
-      if (!showSecondPart) {
-        setShowSecondPart(true); // Show the second part of the form when the "Next" button is clicked
-      } else if (!showThirdPart) {
-        setShowThirdPart(true); // Show the third part of the form when the "Next" button is clicked
-      }
-    };
-  
-    return (
-      <div className="prof-container">
-        <div className="prof-left-section">
-          {/* Content of the left section */}
-        </div>
-        <div className="prof-right-section">
-          {/* Render either the first, second, or third part of the form based on the state */}
-          {showThirdPart ? (
-            <ProfileFormPart3 />
-          ) : showSecondPart ? (
-            <ProfileFormPart2 onNextClick={handleNextClick} />
-          ) : (
-            <ProfileFormPart1 onNextClick={handleNextClick} />
-          )}
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}

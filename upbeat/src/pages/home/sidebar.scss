@@ -1,5 +1,5 @@
 $borderRadius: 10px;
-$spacer: 2rem;
+$spacer: 1rem;
 $primary: #5995fd;
 $text: #6a778e;
 $linkHeight: $spacer * 3.5;
@@ -32,6 +32,7 @@ body{
   background: #fff;
   border-radius: $borderRadius;
   padding: $spacer 0;
+  
   box-shadow: 0 0 40px rgba(0,0,0,0.03);
   height: calc(100vh - #{$spacer*4});
   &__link{
@@ -71,6 +72,8 @@ body{
     position: relative;
   }
   &__item{
+    list-style: none;
+
     &:last-child{
       &:before{
         content: '';

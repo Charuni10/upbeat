@@ -30,12 +30,17 @@ export function Login() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ email, password }),
             });
             if (response.ok) {
+                const data = await response.json(); // Parse the response body as JSON
+                const token = data.access_token; // Assuming the response includes a 'token' field
+                console.log("token",token)
+                // Store the token in localStorage or sessionStorage for future use
+                localStorage.setItem("token", token);
                 navigate("/home");
             } else {
-                alert("Invalid username or password");
+                alert("Invalid email or password");
             }
         } catch (error) {
             console.error("Error:", error);
@@ -78,7 +83,7 @@ export function Login() {
         }
 
         try {
-            const response = await fetch("https://cors-anywhere.herokuapp.com/http://13.233.127.190:8080/user/signup", {
+            const response = await fetch("http://13.233.127.190:8080/user/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -86,8 +91,7 @@ export function Login() {
                 body: JSON.stringify({ username, email, phone_number: phoneNumber, password }),
             });
             if (response.ok) {
-                alert("Signup successful. Please login.");
-                setIsSignUp(false);
+                navigate("/profile");
             } else {
                 alert("Signup failed. Please try again.");
             }
@@ -105,7 +109,7 @@ export function Login() {
                         <h2 className="title">Sign In</h2>
                         <div className="input-field">
                             <AiOutlineUser className="icons"/>
-                            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username"/>
+                            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
                         </div>
                         <div className="input-field">
                             <RiLockPasswordLine className="icons"/>
