@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './login.css';
 import login from '../static/login.png';
 import signup from '../static/signup.png';
@@ -14,6 +14,18 @@ export function Login() {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [isSignUp, setIsSignUp] = useState<boolean>(false);
+
+    useEffect(() => {
+        const storedFormData = localStorage.getItem("classifyFormData");
+    
+        if (storedFormData) {
+          const parsedFormData = JSON.parse(storedFormData);
+          console.log(parsedFormData);
+    
+        } else {
+          console.log("No data found in local storage");
+        }
+      }, []);
 
     const clickSignUp = () => {
         setIsSignUp(true);
