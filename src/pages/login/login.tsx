@@ -124,7 +124,7 @@ export function Login() {
         if (!validateSignUp()) {
             return;
         }
-
+        
         try {
             const response = await fetch("http://13.233.127.190:8080/user/signup", {
                 method: "POST",
