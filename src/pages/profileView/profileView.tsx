@@ -34,18 +34,32 @@ export function ProfileView() {
     // Call the fetchProfileData function
     fetchProfileData();
   }, []); // Call useEffect only once on component mount
-
+  {/* Render profile details */}
+  // {profileData && (
+  //   <div>
+  //     <p>Name: {profileData.name}</p>
+  //     <p>Email: {profileData.email}</p>
+  //     {/* Add more profile details as needed */}
+  //   </div>
+  // )}
   return (
     <div>
       <h1>Profile</h1>
-      {/* Render profile details */}
-      {profileData && (
-        <div>
-          <p>Name: {profileData.name}</p>
-          <p>Email: {profileData.email}</p>
-          {/* Add more profile details as needed */}
-        </div>
-      )}
+    <p>Name</p>
+    <p>Email</p>
+    <p>Phone Number</p>
+    <p>DOB</p>
+    <p>Gender</p>
+    <p>Report frequency</p>
+    <h1>Doctor details</h1>
+    <p>Name</p>
+    <p>Email</p>
+    <p>Phone Number</p>
+    <p>Clinic or hospital name</p>
+    <h1>Emergency contact details</h1>
+    <p>Name</p>
+    <p>Relationship</p>
+    <p>Phone Number</p>
     </div>
   );
 }
