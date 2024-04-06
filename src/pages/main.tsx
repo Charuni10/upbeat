@@ -1,7 +1,7 @@
 import OpenAI from 'openai';
 
 const client = new OpenAI({
-  apiKey: '56b8e846be31545fc9af12ef026bd002d4ed5f8333cd7d7e31eafb30c84591ec',
+  apiKey: 'api',
   baseURL: 'https://api.together.xyz/v1',
   dangerouslyAllowBrowser: true,
 });
