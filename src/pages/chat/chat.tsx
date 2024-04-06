@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Input, Flex, Text, Spacer } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import Navbar from "../home/sidebar";
-
+import { main } from "../main";
 interface Message {
   id: number;
   text: string;
@@ -13,26 +13,38 @@ export const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState("");
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputText.trim() !== "") {
       const newUserMessage: Message = {
         id: messages.length,
         text: inputText,
         isUser: true,
       };
-      const botResponse: Message = {
-        id: messages.length + 1,
-        text: "Welcome! How can I assist you?",
-        isUser: false,
-      };
-      setMessages([...messages, newUserMessage, botResponse]);
-      setInputText("");
+
+      setMessages([...messages, newUserMessage]); // Add user message to state
+
+      try {
+        // Get response from the bot
+        const botResponseText = await main(inputText);
+
+        const botResponse: Message = {
+          id: messages.length + 1,
+          text: botResponseText,
+          isUser: false,
+        };
+
+        setMessages((prevMessages) => [...prevMessages, botResponse]); // Add bot response to state
+      } catch (error) {
+        console.error("Error fetching bot response:", error);
+      }
+
+      setInputText(""); // Clear input field
     }
   };
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Box p={4} h="100vh" bg="#f4f4f4">
         {/* Set full screen height */}
         <Box
