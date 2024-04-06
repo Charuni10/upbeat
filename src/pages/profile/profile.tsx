@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./profile.css"; // Import CSS file for styling
 import { useNavigate } from "react-router";
+import { HStack } from "@chakra-ui/react";
 
 // Component for the first part of the profile form
 function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick: () => void; formData: any; setFormData: any }) {
@@ -12,18 +13,22 @@ function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick:
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  
+
   const handleGenderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const gender = e.target.value;
     setFormData({ ...formData, gender });
   };
   return (
-    <div>
+    <HStack p={0}>
+      <div className="prof-left-section">
+
+      </div>
+    <div className="ProfileFormPart1">
       <h2>Profile Up!</h2>
       <p>Complete your profile to unlock the full app experience!</p>
-      <form>
-      <label>
-          Gender:
+      <form style={{padding:"10px 30px"}}>
+        <label className="gender">
+          Gender :
           <label>
             <input type="radio" name="gender" value="male" checked={formData.gender === "male"} onChange={handleGenderChange} />
             Male
@@ -37,22 +42,21 @@ function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick:
             Other
           </label>
         </label>
-        <label>
-          Date of Birth:
+        <label className="date">
+          Date of Birth :
           <input type="date" name="dob" value={formData.dob} onChange={handleChange} />
         </label>
         <label>
-          How do you want the report:
-          <select name="appointment_frequency"  value={formData.appointment_frequency}  onChange={handleSelectChange} >
+          How do you want the report :
+          <select name="appointment_frequency" value={formData.appointment_frequency} onChange={handleSelectChange} >
             <option value="" disabled selected>Choose a frequency</option>
             <option value="weekly">Weekly</option>
             <option value="monthly">Monthly</option>
-</select>
-          
+          </select>
         </label>
         <label>Which time would you prefer to answer a few questions daily?</label>
         <select name="test_timing" value={formData.test_timing} onChange={handleSelectChange}>
-        <option value="" disabled selected>Choose a time</option>
+          <option value="" disabled selected>Choose a time</option>
           <option value='07:00:00'>7 PM</option>
           <option value='08:00:00'>8 PM</option>
           <option value='09:00:00'>9 PM</option>
@@ -60,6 +64,7 @@ function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick:
       </form>
       <input type="button" value="Next" className="btn" onClick={onNextClick} />
     </div>
+    </HStack>
   );
 }
 
@@ -71,10 +76,14 @@ function ProfileFormPart2({ onNextClick, onBackClick, formData, setFormData }: {
   };
 
   return (
-    <div>
+    <HStack p={0}>
+    <div className="prof-left-section">
+
+    </div>
+    <div  className="ProfileFormPart2">
       <h2>Add up</h2>
       <p>Please fill any one of your emergency contact for us to connect when necessary</p>
-      <form>
+      <form style={{padding:"10px 30px"}}>
         <label>
           Emergency Contact Name:
           <input type="text" name="contact_name" value={formData.contact_name} onChange={handleChange} />
@@ -86,12 +95,12 @@ function ProfileFormPart2({ onNextClick, onBackClick, formData, setFormData }: {
         <label >
           Relationship with the person:
           <input type="text" name="contact_relationship" value={formData.contact_relationship} onChange={handleChange} />
-
         </label>
-        <input type="button" value="Back" className="btn" onClick={onBackClick} />
-        <input type="button" value="Next" className="btn" onClick={onNextClick} />
+        <HStack><input type="button" value="Back" className="btn" onClick={onBackClick} />
+        <input type="button" value="Next" className="btn" onClick={onNextClick} /></HStack>
       </form>
     </div>
+    </HStack>
   );
 }
 
@@ -107,17 +116,21 @@ function ProfileFormPart3({ onBackClick, formData, setFormData }: { onBackClick:
     alert(JSON.stringify(formData));
 
     localStorage.setItem("profileFormData", JSON.stringify(formData));
-    
+
     // Navigate to the classify page
     navigate("/classify");
   };
-  
+
 
   return (
-    <div>
+    <HStack p={0}>
+    <div className="prof-left-section">
+
+    </div>
+    <div  className="ProfileFormPart3">
       <h2>Doctor's Information</h2>
-      <p>If you are reaching out to a psychiatrist, give us the details to send test_timings to him</p>
-      <form>
+      <p style={{fontSize:"15px"}}>If you are reaching out to a psychiatrist, give us the details to send test_timings to him</p>
+      <form style={{padding:"10px 30px"}}>
         <label>
           Contact Name:
           <input type="text" name="name" value={formData.name} onChange={handleChange} />
@@ -126,7 +139,7 @@ function ProfileFormPart3({ onBackClick, formData, setFormData }: { onBackClick:
           Phone Number:
           <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
         </label>
-        <label>
+        <label  className="name">
           Clinic name:
           <input type="text" name="clinic_or_hospital_name" value={formData.clinic_or_hospital_name} onChange={handleChange} />
         </label>
@@ -134,10 +147,14 @@ function ProfileFormPart3({ onBackClick, formData, setFormData }: { onBackClick:
           Email address:
           <input type="text" name="email" value={formData.email} onChange={handleChange} />
         </label>
+        <HStack>
         <input type="button" value="Back" className="btn" onClick={onBackClick} />
         <input type="button" value="Submit" className="btn" onClick={handleSubmit} />
+        </HStack>
+       
       </form>
     </div>
+    </HStack>
   );
 }
 
@@ -151,8 +168,8 @@ export function Profile() {
     test_timing: "",
     appointment_frequency: "",
     contact_name: "",
-  contact_phone_number: "",
-    contact_relationship:"",
+    contact_phone_number: "",
+    contact_relationship: "",
     name: "",
     phone_number: "",
     clinic_or_hospital_name: "",
@@ -177,7 +194,6 @@ export function Profile() {
 
   return (
     <div className="prof-container">
-      <div className="prof-left-section">{/* Content of the left section */}</div>
       <div className="prof-right-section">
         {/* Render either the first, second, or third part of the form based on the state */}
         {showThirdPart ? (

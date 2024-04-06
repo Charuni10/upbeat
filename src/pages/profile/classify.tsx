@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./classify.css"
 
 export function Classify() {
   useEffect(() => {
@@ -66,13 +67,13 @@ export function Classify() {
   };
 
   return (
-    <div>
+    <div className="Classify">
       <h1>Classify Page</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} style={{padding:"10px 30px"}}>
         {/* Your form fields */}
         <label>Do you have mood swings regularly?</label>
         <br />
-        <label>
+        <label className="yes">
           <input
             type="radio"
             name="mood_swing"
@@ -82,7 +83,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label>
+        <label  className="no">
           <input
             type="radio"
             name="mood_swing"
@@ -186,7 +187,7 @@ export function Classify() {
 
         <label>Do you behave aggressively?</label>
         <br />
-        <label>
+        <label className="yes">
           <input
             type="radio"
             name="aggressive_response"
@@ -196,7 +197,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label>
+        <label  className="no">
           <input
             type="radio"
             name="aggressive_response"
@@ -210,7 +211,7 @@ export function Classify() {
 
         <label>Do you have suicidal thoughts?</label>
         <br />
-        <label>
+        <label className="yes">
           <input
             type="radio"
             name="suicidal_thoughts"
@@ -220,7 +221,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label>
+        <label  className="no">
           <input
             type="radio"
             name="suicidal_thoughts"
@@ -234,7 +235,7 @@ export function Classify() {
 
         <label>Do you feel respectful in your regular life?</label>
         <br />
-        <label>
+        <label className="yes">
           <input
             type="radio"
             name="authority_respect"
@@ -244,7 +245,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label>
+        <label className="no">
           <input
             type="radio"
             name="authority_respect"

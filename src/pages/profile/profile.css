@@ -1,17 +1,78 @@
 .prof-container {
     display: flex;
+    overflow: hidden;
+    
+  }
+  .ProfileFormPart1 ,  .ProfileFormPart2 , .ProfileFormPart3{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .ProfileFormPart1 form , .ProfileFormPart2 form , .ProfileFormPart3 form{
+    text-align: left;
+  }
+  
+  .ProfileFormPart1 h2  , .ProfileFormPart2 h2 , .ProfileFormPart3 h2{
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+  }
+
+  .gender , .date{
+    width:100%
+  }
+  
+  .name{
+    width: 95%;
+  }
+  .ProfileFormPart1 p  ,  .ProfileFormPart2 p  , .ProfileFormPart3 p {
+    padding: 0 20px;
+    margin-bottom: 10px;
+  }
+  .ProfileFormPart1 label , .ProfileFormPart2 label , .ProfileFormPart3 label{
+    color:#1e61a9;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  
+  .ProfileFormPart1 label label{
+    color:black
+  }
+  .ProfileFormPart1 input[type="radio"] {
+    margin: 0  5px 0 15px;
+    display: inline-block !important;
+    margin-bottom: 10px;
+  }
+  
+  .ProfileFormPart1 input[type="date"],
+  .ProfileFormPart2 input[type="text"] ,
+  .ProfileFormPart3 input[type="text"] ,
+  .ProfileFormPart1 select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-sizing: border-box;
+  }
+  
+  
+  .ProfileFormPart1 input[type="button"]:hover {
+    background-color: #0056b3;
   }
   
   .prof-left-section {
-    flex: 1;
+    width: 50%;
     background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
-    height: 100vh; /* Adjust the height as needed */
+    height: 100vh;/* Adjust the height as needed */
     border-radius: 10px;
   }
   
   .prof-right-section {
     flex: 1;
-    padding: 20px;
   }
 
   .btn.transparent {
@@ -24,18 +85,17 @@
     font-size: 0.8rem;
   }
   
-.btn {
+  input[type="button"] {
     width: 150px;
     background-color: #5995fd;
     border: none;
     outline: none;
-    height: 49px;
+    height: 40px;
     border-radius: 49px;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-    margin: 10px 0;
-    margin-top: 15px;
+    margin: 5px 0;
     cursor: pointer;
     transition: 0.5s;
   }
