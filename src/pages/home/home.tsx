@@ -1,9 +1,34 @@
+import { useState } from "react";
+import {
+  Heading,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  PopoverHeader,
+  PopoverBody,
+  Box,
+  HStack,
+  VStack,
+  Text,
+} from "@chakra-ui/react";
 import Nav from "./sidebar";
 import "./home.css";
 import img from "../static/home.png";
-import { Heading } from "@chakra-ui/react";
+import { MessageSquareWarning, Star } from "lucide-react";
 
 export function Home() {
+  const [rating, setRating] = useState(0);
+
+  const handleRatingChange = (value: any) => {
+    setRating(value);
+  };
+
+  const handleSubmit = () => {
+    console.log("Rating:", rating);
+    setRating(0);
+  };
+
   return (
     <div className="home">
       <Nav />
@@ -12,9 +37,58 @@ export function Home() {
       </Heading>
       <img src={img} alt="home" width={500} style={{ paddingTop: "40px" }} />
       <div className="bottom">
-        <div>Feeling Stressed ? Take a deep breath and open UPBEAT</div>
+        <div>Feeling Stressed? Take a deep breath and open UPBEAT</div>
         <div>Find your moment of calm within chaos</div>
       </div>
+
+      <Box position="fixed" bottom={4} right={4}>
+        <Popover>
+          <PopoverTrigger>
+            <MessageSquareWarning cursor={"pointer"} size="35px" />
+          </PopoverTrigger>
+          <PopoverContent
+            width={"4xs"}
+            background={"white"}
+            borderRadius={5}
+            p={10}
+            fontSize={"medium"}
+          >
+            <HStack>
+              <PopoverHeader fontSize={"2xs"}>Give your feedback</PopoverHeader>
+              <PopoverCloseButton
+                w={"25px"}
+                h={"20px"}
+                border={"none"}
+                background={"white"}
+                alignSelf={"flex-end"}
+                pb={10}
+              />
+            </HStack>
+            <PopoverBody>
+              <VStack>
+                <Text> Rate Us</Text>
+                <HStack>
+                  {[...Array(5)].map((_, index) => (
+                    <Star
+                      key={index}
+                      onClick={() => handleRatingChange(index + 1)}
+                      color={index < rating ? "blue" : "black"}
+                      fill={index < rating ? "blue" : "white"}
+                      style={{ cursor: "pointer", marginLeft: "5px" }}
+                    />
+                  ))}
+                </HStack>
+                <button
+                  onClick={handleSubmit}
+                  style={{ marginTop: "10px", padding: "5px" }}
+                >
+                  Submit
+                </button>
+              </VStack>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
+      </Box>
     </div>
   );
 }
