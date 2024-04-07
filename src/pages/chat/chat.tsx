@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Box, Input, Flex, Text, Spacer } from "@chakra-ui/react";
+import { Box, Input, Flex, Text } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
-import Navbar from "../home/sidebar";
 import { main } from "../main";
 interface Message {
   id: number;
@@ -98,12 +97,12 @@ export const Chatbot: React.FC = () => {
             mr={2}
             m={20}
           />
-          <Box ml={-10} mr={10}>
+          <Box ml={-10} mr={20}>
             <SendIcon
-              size={"1.8rem"}
+              size={"2rem"}
               cursor="pointer"
               onClick={handleSendMessage}
-              style={{ color: "#41c9e2", marginTop: "35px" }}
+              style={{ color: "#41c9e2", marginTop: "30px" }}
             />
           </Box>
         </Flex>

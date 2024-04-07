@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./classify.css"
+import "./classify.css";
 
 export function Classify() {
   useEffect(() => {
@@ -34,24 +34,24 @@ export function Classify() {
         clinic_or_hospital_name: parsedFormData.clinic_or_hospital_name,
         email: parsedFormData.email,
       };
-    } else {  
+    } else {
       console.log("No data found in local storage");
     }
   }, []); // Run this effect only once on component mount
 
   const navigate = useNavigate(); // Access navigate function for navigation
   const [formData, setFormData] = useState({
-    "mood_swing": "",
-    "optimisim": "",
-    "euphoric": "",
-    "exhausted": "",
-    "concentration": "",
-    "sexual_activity": "",
-    "aggressive_response": "",
-    "suicidal_thoughts": "",
-    "authority_respect": "",
-    "sadness": ""
-  }); 
+    mood_swing: "",
+    optimisim: "",
+    euphoric: "",
+    exhausted: "",
+    concentration: "",
+    sexual_activity: "",
+    aggressive_response: "",
+    suicidal_thoughts: "",
+    authority_respect: "",
+    sadness: "",
+  });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,7 +61,9 @@ export function Classify() {
     navigate("/login");
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -69,7 +71,7 @@ export function Classify() {
   return (
     <div className="Classify">
       <h1>Classify Page</h1>
-      <form onSubmit={handleSubmit} style={{padding:"10px 30px"}}>
+      <form onSubmit={handleSubmit} style={{ padding: "10px 30px" }}>
         {/* Your form fields */}
         <label>Do you have mood swings regularly?</label>
         <br />
@@ -83,7 +85,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label  className="no">
+        <label className="no">
           <input
             type="radio"
             name="mood_swing"
@@ -197,7 +199,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label  className="no">
+        <label className="no">
           <input
             type="radio"
             name="aggressive_response"
@@ -221,7 +223,7 @@ export function Classify() {
           />
           Yes
         </label>
-        <label  className="no">
+        <label className="no">
           <input
             type="radio"
             name="suicidal_thoughts"

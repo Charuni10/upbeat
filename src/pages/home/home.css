@@ -1,0 +1,10 @@
+.home {
+  background-color: #5995fd;
+  height: 100vh;
+}
+.bottom {
+  position: fixed;
+  bottom: 20px;
+  left: 33%;
+  color: darkblue;
+}

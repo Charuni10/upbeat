@@ -1,0 +1,36 @@
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-section {
+  margin-bottom: 30px;
+}
+
+.profile-section h3 {
+  color: #0056b3;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.profile-details {
+  margin-bottom: 10px;
+  text-align: left;
+  width: 200px;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.profile-details p {
+  margin: 8px 0;
+}
