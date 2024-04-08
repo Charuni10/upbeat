@@ -67,7 +67,7 @@ export function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://13.233.127.190:8080/user/login", {
+      const response = await fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -129,7 +129,7 @@ export function Login() {
     }
 
     try {
-      const response = await fetch("http://13.233.127.190:8080/user/signup", {
+      const response = await fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +157,7 @@ export function Login() {
     console.log(doctorInformation);
     console.log(parsedData);
     // Send personal information
-    fetch("http://13.233.127.190:8080/profile/profile", {
+    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/profile", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export function Login() {
       );
 
     // Send emergency contact information
-    fetch("http://13.233.127.190:8080/profile/emergency_contact", {
+    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/emergency_contact", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -189,7 +189,7 @@ export function Login() {
       );
 
     // Send doctor information
-    fetch("http://13.233.127.190:8080/profile/doctor_details", {
+    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/doctor_details", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -203,7 +203,7 @@ export function Login() {
         console.error("Error sending doctor information:", error)
       );
 
-    fetch("http://13.233.127.190:8080/mental_health/classify", {
+    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/mental_health/classify", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

@@ -2,7 +2,7 @@
   "name": "upbeat",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://13.233.127.190:8080/",
+  "proxy": " https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@fontsource/comic-neue": "^5.0.8",

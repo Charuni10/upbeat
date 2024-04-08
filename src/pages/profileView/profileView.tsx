@@ -13,7 +13,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          "http ://13.233.127.190 :8080/profile/user_details",
+          " https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/user_details",
           {
             method: "GET",
             headers: {
@@ -37,7 +37,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          "http ://13.233.127.190 :8080/profile/profile_details",
+          " https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/profile_details",
           {
             method: "GET",
             headers: {
