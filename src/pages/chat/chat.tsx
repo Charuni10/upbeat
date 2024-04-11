@@ -69,7 +69,7 @@ export const Chatbot: React.FC = () => {
                 padding="10px 15px"
                 maxW="70%"
                 textAlign={message.isUser ? "right" : "left"}
-                backgroundColor={message.isUser ? "#41c9e2" : "#ccc"}
+                backgroundColor={message.isUser ? "#5995fd" : "#ccc"}
                 color={message.isUser ? "white" : "#333"}
               >
                 {message.text}
@@ -89,7 +89,7 @@ export const Chatbot: React.FC = () => {
               }
             }}
             borderRadius="30px"
-            border="1px solid #41c9e2"
+            border="1px solid #5995fd"
             padding="12px"
             fontSize="16px"
             outline="none"
@@ -102,7 +102,7 @@ export const Chatbot: React.FC = () => {
               size={"2rem"}
               cursor="pointer"
               onClick={handleSendMessage}
-              style={{ color: "#41c9e2", marginTop: "30px" }}
+              style={{ color: "#5995fd", marginTop: "30px" }}
             />
           </Box>
         </Flex>

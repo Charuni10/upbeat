@@ -1,7 +1,7 @@
 $borderRadius: 10px;
 $spacer: 1rem;
 $primary: #5995fd;
-$text: #6a778e;
+$text: #fff;
 $linkHeight: $spacer * 3.5;
 $timing: 250ms;
 $transition: $timing ease all;
@@ -29,7 +29,7 @@ body {
   position: fixed;
   top: $spacer;
   left: $spacer;
-  background: #fff;
+  background: #5995fd;
   border-radius: $borderRadius;
   padding: $spacer 0;
 
@@ -51,8 +51,8 @@ body {
       margin-left: 1rem;
       opacity: 0;
       pointer-events: none;
-      color: $primary;
-      background: #fff;
+      color: #fff;
+      background: #5995fd;
       padding: $spacer * 0.75;
       transition: $transition;
       border-radius: $borderRadius * 1.75;
