@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="navbar">
       <ul className="navbar__menu">
         <li className="navbar__item">
-          <a href="#" className="navbar__link">
+          <a href="/home" className="navbar__link">
             <i data-feather="home"></i>
             <span>Home</span>
           </a>
@@ -23,7 +23,7 @@ const Navbar = () => {
           </a>
         </li>
         <li className="navbar__item">
-          <a href="#" className="navbar__link">
+          <a href="/profileview" className="navbar__link">
             <i data-feather="users"></i>
             <span>Profile</span>
           </a>
@@ -32,12 +32,6 @@ const Navbar = () => {
           <a href="#" className="navbar__link">
             <i data-feather="help-circle"></i>
             <span>Help</span>
-          </a>
-        </li>
-        <li className="navbar__item">
-        <a href="#" className="navbar__link">
-            <i data-feather="settings"></i>
-            <span>Settings</span>
           </a>
         </li>
       </ul>

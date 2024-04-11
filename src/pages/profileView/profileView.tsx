@@ -74,7 +74,7 @@ export function ProfileView() {
             <strong>Email :</strong> {profileData && profileData.email}
           </p>
           <p>
-            <strong>Phone Number :</strong>
+            <strong>Phone Number :</strong> {profileData && profileData.phone_number}
           </p>
           <p>
             <strong>DOB :</strong>

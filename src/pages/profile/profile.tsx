@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./profile.css"; // Import CSS file for styling
 import { useNavigate } from "react-router";
 import { HStack } from "@chakra-ui/react";
+import hi from "../static/hii.png";
+import comp from "../static/computer.png";
+import fill from "../static/fill.png";
 
 // Component for the first part of the profile form
 function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick: () => void; formData: any; setFormData: any }) {
@@ -21,7 +24,7 @@ function ProfileFormPart1({ onNextClick, formData, setFormData }: { onNextClick:
   return (
     <HStack p={0}>
       <div className="prof-left-section">
-
+      <img className="image" src={hi} alt="" />
       </div>
     <div className="ProfileFormPart1">
       <h2>Profile Up!</h2>
@@ -78,6 +81,7 @@ function ProfileFormPart2({ onNextClick, onBackClick, formData, setFormData }: {
   return (
     <HStack p={0}>
     <div className="prof-left-section">
+    <img className="image" src={comp} alt="" />
 
     </div>
     <div  className="ProfileFormPart2">
@@ -125,6 +129,7 @@ function ProfileFormPart3({ onBackClick, formData, setFormData }: { onBackClick:
   return (
     <HStack p={0}>
     <div className="prof-left-section">
+    <img className="image" src={fill} alt="" />
 
     </div>
     <div  className="ProfileFormPart3">
@@ -194,6 +199,7 @@ export function Profile() {
 
   return (
     <div className="prof-container">
+      
       <div className="prof-right-section">
         {/* Render either the first, second, or third part of the form based on the state */}
         {showThirdPart ? (
