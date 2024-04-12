@@ -1,7 +1,9 @@
 // ProfileView.js
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./profileView.css"; // Import external CSS
+import "./profileView.css";
+import Nav from "../home/sidebar";
+import SidebarMobile from "../home/sidebarMobile";
 
 export function ProfileView() {
   const navigate = useNavigate();
@@ -62,67 +64,73 @@ export function ProfileView() {
   }, []);
 
   return (
-    <div className="profile-container">
-      <h1 className="profile-header">Profile</h1>
-      <div className="profile-section">
-        <h3>User Details</h3>
-        <div className="profile-details">
-          <p>
-            <strong>Name :</strong> {profileData && profileData.name}
-          </p>
-          <p>
-            <strong>Email :</strong> {profileData && profileData.email}
-          </p>
-          <p>
-            <strong>Phone Number :</strong> {profileData && profileData.phone_number}
-          </p>
-          <p>
-            <strong>DOB :</strong>
-          </p>
-          <p>
-            <strong>Gender :</strong>
-          </p>
-          <p>
-            <strong>Report frequency :</strong>
-          </p>
-          {/* Add more profile details as needed */}
+    <>
+      <Nav />
+      <SidebarMobile />
+      <div className="profile-container">
+        <Nav />
+        <h1 className="profile-header">Profile</h1>
+        <div className="profile-section">
+          <h3>User Details</h3>
+          <div className="profile-details">
+            <p>
+              <strong>Name :</strong> {profileData && profileData.name}
+            </p>
+            <p>
+              <strong>Email :</strong> {profileData && profileData.email}
+            </p>
+            <p>
+              <strong>Phone Number :</strong>{" "}
+              {profileData && profileData.phone_number}
+            </p>
+            <p>
+              <strong>DOB :</strong>
+            </p>
+            <p>
+              <strong>Gender :</strong>
+            </p>
+            <p>
+              <strong>Report frequency :</strong>
+            </p>
+            {/* Add more profile details as needed */}
+          </div>
+        </div>
+        <div className="profile-section">
+          <h3>Doctor Details</h3>
+          <div className="profile-details">
+            <p>
+              <strong>Name :</strong> {profileData && profileData.doctorName}
+            </p>
+            <p>
+              <strong>Email :</strong> {profileData && profileData.doctorEmail}
+            </p>
+            <p>
+              <strong>Phone Number :</strong>
+            </p>
+            <p>
+              <strong>Clinic or hospital Name :</strong>
+            </p>
+            {/* Add more doctor details as needed */}
+          </div>
+        </div>
+        <div className="profile-section">
+          <h3>Emergency contact details</h3>
+          <div className="profile-details">
+            <p>
+              <strong>Name :</strong> {profileData && profileData.doctorName}
+            </p>
+            <p>
+              <strong>Relationship : </strong>
+              {profileData && profileData.doctorEmail}
+            </p>
+            <p>
+              <strong>Phone Number :</strong>
+            </p>
+            {/* Add more doctor details as needed */}
+          </div>
         </div>
       </div>
-      <div className="profile-section">
-        <h3>Doctor Details</h3>
-        <div className="profile-details">
-          <p>
-            <strong>Name :</strong> {profileData && profileData.doctorName}
-          </p>
-          <p>
-            <strong>Email :</strong> {profileData && profileData.doctorEmail}
-          </p>
-          <p>
-            <strong>Phone Number :</strong>
-          </p>
-          <p>
-            <strong>Clinic or hospital Name :</strong>
-          </p>
-          {/* Add more doctor details as needed */}
-        </div>
-      </div>
-      <div className="profile-section">
-        <h3>Emergency contact details</h3>
-        <div className="profile-details">
-          <p>
-            <strong>Name :</strong> {profileData && profileData.doctorName}
-          </p>
-          <p>
-            <strong>Relationship : </strong>
-            {profileData && profileData.doctorEmail}
-          </p>
-          <p>
-            <strong>Phone Number :</strong>
-          </p>
-          {/* Add more doctor details as needed */}
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
 

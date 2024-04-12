@@ -1,42 +1,41 @@
-import React, { useEffect } from "react";
-import "./sidebar.scss";
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import feather from "feather-icons";
-const Navbar = () => {
+import "./sidebar.css";
+
+const Sidebar = () => {
   useEffect(() => {
-    // Initialize Feather Icons after the component is mounted
     feather.replace();
   }, []);
 
   return (
-    <nav className="navbar">
-      <ul className="navbar__menu">
-        <li className="navbar__item">
-          <a href="/home" className="navbar__link">
-            <i data-feather="home"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li className="navbar__item">
-          <a href="/chat" className="navbar__link">
-            <i data-feather="message-square"></i>
-            <span>Chat</span>
-          </a>
-        </li>
-        <li className="navbar__item">
-          <a href="/profileview" className="navbar__link">
-            <i data-feather="users"></i>
-            <span>Profile</span>
-          </a>
-        </li>
-        <li className="navbar__item">
-          <a href="#" className="navbar__link">
-            <i data-feather="help-circle"></i>
-            <span>Help</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <nav className="navbar">
+        <ul className="navbar__menu">
+          {menuItems.map((item: any) => (
+            <li
+              key={item.id}
+              className="navbar__item"
+              style={{ listStyleType: "none" }}
+            >
+              <NavLink to={item.path} className="navbar__link">
+                <i data-feather={item.icon}></i>
+                <span>{item.label}</span>
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 };
 
-export default Navbar;
+export default Sidebar;
+
+// Example usage
+const menuItems = [
+  { id: 1, path: "/home", icon: "home", label: "Home" },
+  { id: 2, path: "/chat", icon: "message-square", label: "Chat" },
+  { id: 3, path: "/profileview", icon: "users", label: "Profile" },
+  { id: 4, path: "/help", icon: "help-circle", label: "Help" },
+];

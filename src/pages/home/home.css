@@ -8,3 +8,31 @@
   left: 33%;
   color: darkblue;
 }
+
+.img {
+  width: 500;
+}
+
+@media screen and (max-width: 600px) {
+  .home {
+    background-color: #fff;
+    height: 100vh;
+    width: inherit;
+    overflow: hidden;
+  }
+
+  .img {
+    width: 380px;
+    margin-top: 50px;
+    margin-left: -10px;
+  }
+
+  .bottom {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    padding: 0 30px;
+    color: darkblue;
+    margin-bottom: 30px;
+  }
+}

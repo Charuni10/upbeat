@@ -3,6 +3,9 @@ import { Box, Input, Flex, Text } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import { main } from "../main";
 import Navbar from "../home/sidebar";
+import "./chat.css";
+import SidebarMobile from "../home/sidebarMobile";
+
 interface Message {
   id: number;
   text: string;
@@ -45,7 +48,8 @@ export const Chatbot: React.FC = () => {
   return (
     <>
       <Navbar />
-      <Box p={4} h="100vh" bg="#f4f4f4">
+      <SidebarMobile />
+      <Box p={4} h="100vh" bg="#f4f4f4" className="chat">
         {/* Set full screen height */}
         <Box
           borderWidth="1px"
@@ -58,13 +62,14 @@ export const Chatbot: React.FC = () => {
             backgroundColor: "#f4f4f4",
             padding: "20px",
           }}
+          mt={50}
         >
           {messages.map((message) => (
             <Flex
               key={message.id}
               justify={message.isUser ? "flex-end" : "flex-start"}
               mb={2}
-              ml={85}
+              ml={90}
             >
               <Text
                 borderRadius="20px"
@@ -79,7 +84,15 @@ export const Chatbot: React.FC = () => {
             </Flex>
           ))}
         </Box>
-        <Flex mt={4} pos="absolute" insetX="0" bottom="0" py={4} px={2} ml={90}>
+        <Flex
+          mt={4}
+          pos="absolute"
+          insetX="0"
+          bottom="0"
+          py={4}
+          px={2}
+          className="chatbox"
+        >
           {/* Positioned at bottom */}
           <Input
             placeholder="Type a message..."

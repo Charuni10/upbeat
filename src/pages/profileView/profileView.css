@@ -34,3 +34,24 @@
 .profile-details p {
   margin: 8px 0;
 }
+@media screen and (max-width: 600px) {
+  .profile-container {
+    max-width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: inherit;
+    overflow: hidden;
+  }
+
+  .profile-details {
+    margin-bottom: 10px;
+    text-align: left;
+    width: 300px;
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+}
