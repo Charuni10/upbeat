@@ -50,7 +50,6 @@ export function ProfileView() {
           }
         );
         if (response.ok) {
-          console.log("yes")
           const data = await response.json();
           setProfileData(data);
         } else {
@@ -75,23 +74,23 @@ console.log(userData,profileData)
           <h3>User Details</h3>
           <div className="profile-details">
             <p>
-              <strong>Name :</strong> {profileData && profileData.name}
+              <strong>Name : </strong> {userData && userData.username}
             </p>
             <p>
-              <strong>Email :</strong> {profileData && profileData.email}
+              <strong>Email : </strong> {userData && userData.email}
             </p>
             <p>
-              <strong>Phone Number :</strong>{" "}
-              {profileData && profileData.phone_number}
+              <strong>Phone Number : </strong>
+              {userData && userData.phone_number}
             </p>
             <p>
-              <strong>DOB :</strong>
+              <strong>DOB : </strong>{profileData && profileData.profile.dob}
             </p>
             <p>
-              <strong>Gender :</strong>
+              <strong>Gender : </strong>{profileData && profileData.profile.gender}
             </p>
             <p>
-              <strong>Report frequency :</strong>
+              <strong>Report frequency :</strong> {profileData && profileData.profile.appointment_frequency}
             </p>
             {/* Add more profile details as needed */}
           </div>
@@ -100,16 +99,16 @@ console.log(userData,profileData)
           <h3>Doctor Details</h3>
           <div className="profile-details">
             <p>
-              <strong>Name :</strong> {profileData && profileData.doctorName}
+              <strong>Name :</strong> {profileData && profileData.doctor.name}
             </p>
             <p>
-              <strong>Email :</strong> {profileData && profileData.doctorEmail}
+              <strong>Email :</strong> {profileData && profileData.doctor.email}
             </p>
             <p>
-              <strong>Phone Number :</strong>
+              <strong>Phone Number :</strong> {profileData && profileData.doctor.phone_number}
             </p>
             <p>
-              <strong>Clinic or hospital Name :</strong>
+              <strong>Clinic or hospital Name :</strong> {profileData && profileData.doctor.clinic_or_hospital_name}
             </p>
             {/* Add more doctor details as needed */}
           </div>
@@ -118,14 +117,13 @@ console.log(userData,profileData)
           <h3>Emergency contact details</h3>
           <div className="profile-details">
             <p>
-              <strong>Name :</strong> {profileData && profileData.doctorName}
+              <strong>Name :</strong> {profileData && profileData.emergency_contact.contact_name}
             </p>
             <p>
-              <strong>Relationship : </strong>
-              {profileData && profileData.doctorEmail}
+              <strong>Relationship : </strong>{profileData && profileData.emergency_contact.contact_relationship}
             </p>
             <p>
-              <strong>Phone Number :</strong>
+              <strong>Phone Number :</strong> {profileData && profileData.emergency_contact.contact_phone_number}
             </p>
             {/* Add more doctor details as needed */}
           </div>
@@ -135,23 +133,3 @@ console.log(userData,profileData)
   );
 }
 
-{
-  /* <div>
-      <h1>Profile</h1>
-    <p>Name</p>
-    <p>Email</p>
-    <p>Phone Number</p>
-    <p>DOB</p>
-    <p>Gender</p>
-    <p>Report frequency</p>
-    <h1>Doctor details</h1>
-    <p>Name</p>
-    <p>Email</p>
-    <p>Phone Number</p>
-    <p>Clinic or hospital name</p>
-    <h1>Emergency contact details</h1>
-    <p>Name</p>
-    <p>Relationship</p>
-    <p>Phone Number</p>
-    </div> */
-}

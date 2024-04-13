@@ -250,8 +250,7 @@ function ProfileFormPart3({
       <div className="ProfileFormPart3">
         <h2>Doctor's Information</h2>
         <p style={{ fontSize: "15px" }}>
-          If you are reaching out to a psychiatrist, give us the details to send
-          test_timings to him
+          If you are reaching out to a psychiatrist, give us the details to send reports to him
         </p>
         <form style={{ padding: "10px 30px" }}>
           <label>

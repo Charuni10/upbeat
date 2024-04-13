@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import { AiOutlinePhone, AiOutlineUser } from "react-icons/ai";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
+import { TIMEOUT } from "dns";
 
 export function Login() {
   const navigate = useNavigate();
@@ -154,72 +155,80 @@ export function Login() {
   };
 
   const sendUserData = (token: string) => {
-    console.log(personalInformation);
-    console.log(emergencyContactInformation);
-    console.log(doctorInformation);
-    console.log(parsedData);
     // Send personal information
-    fetch(" https://upbeat-8f6t.onrender.com/profile/profile", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(personalInformation),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Personal Information Response:", data))
-      .catch((error) =>
-        console.error("Error sending personal information:", error)
-      );
-
+    setTimeout(() => {
+      fetch("https://upbeat-8f6t.onrender.com/profile/profile", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(personalInformation),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Personal Information Response:", data))
+        .catch((error) =>
+          console.error("Error sending personal information:", error)
+        );
+    }, 0); // Change the delay time as needed
+  
     // Send emergency contact information
-    fetch(" https://upbeat-8f6t.onrender.com/profile/emergency_contact", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(emergencyContactInformation),
-    })
-      .then((response) => response.json())
-      .then((data) =>
-        console.log("Emergency Contact Information Response:", data)
-      )
-      .catch((error) =>
-        console.error("Error sending emergency contact information:", error)
-      );
-
+    setTimeout(() => {
+      fetch("https://upbeat-8f6t.onrender.com/profile/emergency_contact", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emergencyContactInformation),
+      })
+        .then((response) => response.json())
+        .then((data) =>
+          console.log("Emergency Contact Information Response:", data)
+        )
+        .catch((error) =>
+          console.error(
+            "Error sending emergency contact information:",
+            error
+          )
+        );
+    }, 1000); // Change the delay time as needed
+  
     // Send doctor information
-    fetch(" https://upbeat-8f6t.onrender.com/profile/doctor_details", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(doctorInformation),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Doctor Information Response:", data))
-      .catch((error) =>
-        console.error("Error sending doctor information:", error)
-      );
-
-    fetch(" https://upbeat-8f6t.onrender.com/mental_health/classify", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(parsedData),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log("Test Response:", data))
-      .catch((error) =>
-        console.error("Error sending test information:", error)
-      );
+    setTimeout(() => {
+      fetch("https://upbeat-8f6t.onrender.com/profile/doctor_details", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(doctorInformation),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Doctor Information Response:", data))
+        .catch((error) =>
+          console.error("Error sending doctor information:", error)
+        );
+    }, 2000); // Change the delay time as needed
+  
+    // Send test information
+    setTimeout(() => {
+      fetch("https://upbeat-8f6t.onrender.com/mental_health/classify", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(parsedData),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Test Response:", data))
+        .catch((error) =>
+          console.error("Error sending test information:", error)
+        );
+    }, 3000); // Change the delay time as needed
   };
-
+  
   return (
     <div className={`container ${isSignUp ? "sign-up-mode" : ""}`}>
       <div className="forms-container">

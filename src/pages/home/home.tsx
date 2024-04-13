@@ -23,13 +23,13 @@ export function Home() {
   const [rating, setRating] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      localStorage.clear();
-    }, 1 * 60 * 60 * 1000);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     localStorage.clear();
+  //   }, 1 * 60 * 60 * 1000);
 
-    return () => clearTimeout(timeoutId);
-  }, []);
+  //   return () => clearTimeout(timeoutId);
+  // }, []);
   const handleRatingChange = (value: any) => {
     setRating(value);
   }
