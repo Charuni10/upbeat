@@ -15,7 +15,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          " https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/user_details",
+          " https://upbeat-8f6t.onrender.com/profile/user_details",
           {
             method: "GET",
             headers: {
@@ -26,6 +26,7 @@ export function ProfileView() {
         );
         if (response.ok) {
           const data = await response.json();
+          
           setUserData(data);
         } else {
           console.error("Failed to fetch user data");
@@ -39,7 +40,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          " https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/profile_details",
+          " https://upbeat-8f6t.onrender.com/profile/profile_details",
           {
             method: "GET",
             headers: {
@@ -49,6 +50,7 @@ export function ProfileView() {
           }
         );
         if (response.ok) {
+          console.log("yes")
           const data = await response.json();
           setProfileData(data);
         } else {
@@ -58,11 +60,10 @@ export function ProfileView() {
         console.error("Error fetching profile data :", error);
       }
     };
-
     fetchUserData();
     fetchProfileData();
   }, []);
-
+console.log(userData,profileData)
   return (
     <>
       <Nav />

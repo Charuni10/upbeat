@@ -67,7 +67,7 @@ export function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/user/login", {
+      const response = await fetch(" https://upbeat-8f6t.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,9 @@ export function Login() {
         console.log("token", token);
         // Store the token in localStorage or sessionStorage for future use
         localStorage.setItem("token", token);
+        if (parsedData){
         sendUserData(token);
+        }
         navigate("/home");
       } else {
         alert("Invalid email or password");
@@ -129,7 +131,7 @@ export function Login() {
     }
 
     try {
-      const response = await fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/user/signup", {
+      const response = await fetch(" https://upbeat-8f6t.onrender.com/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -157,7 +159,7 @@ export function Login() {
     console.log(doctorInformation);
     console.log(parsedData);
     // Send personal information
-    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/profile", {
+    fetch(" https://upbeat-8f6t.onrender.com/profile/profile", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -172,7 +174,7 @@ export function Login() {
       );
 
     // Send emergency contact information
-    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/emergency_contact", {
+    fetch(" https://upbeat-8f6t.onrender.com/profile/emergency_contact", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -189,7 +191,7 @@ export function Login() {
       );
 
     // Send doctor information
-    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/profile/doctor_details", {
+    fetch(" https://upbeat-8f6t.onrender.com/profile/doctor_details", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -203,7 +205,7 @@ export function Login() {
         console.error("Error sending doctor information:", error)
       );
 
-    fetch(" https://lxqwnpuexkh74m4i7yjbc74u7a0ifzmz.lambda-url.ap-south-1.on.aws/mental_health/classify", {
+    fetch(" https://upbeat-8f6t.onrender.com/mental_health/classify", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
