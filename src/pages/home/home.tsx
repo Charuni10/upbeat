@@ -21,7 +21,6 @@ import { useNavigate } from "react-router";
 
 export function Home() {
   const [rating, setRating] = useState(0);
-  const navigate = useNavigate();
 
   // useEffect(() => {
   //   const timeoutId = setTimeout(() => {
@@ -32,15 +31,10 @@ export function Home() {
   // }, []);
   const handleRatingChange = (value: any) => {
     setRating(value);
-  }
+  };
   const handleSubmit = () => {
     console.log("Rating:", rating);
     setRating(0);
-  };
-
-  const logout = () => {
-    localStorage.clear();
-    navigate("/login");
   };
 
   return (
@@ -50,13 +44,15 @@ export function Home() {
       <Heading pt={20} color={"darkblue"}>
         UPBEAT
       </Heading>
-      <img src={img} alt="home" className="img" style={{ paddingTop: "40px" }} />
+      <img
+        src={img}
+        alt="home"
+        className="img"
+        style={{ paddingTop: "40px" }}
+      />
       <div className="bottom">
         <div>Feeling Stressed? Take a deep breath and open UPBEAT</div>
         <div>Find your moment of calm within chaos</div>
-      </div>
-      <div>
-        <button onClick={logout}>Logout</button>
       </div>
       <Box position="fixed" bottom={4} right={4}>
         <Popover>

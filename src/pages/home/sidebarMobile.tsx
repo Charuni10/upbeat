@@ -38,4 +38,5 @@ const menuItems = [
   { id: 2, path: "/chat", icon: "message-square", label: "Chat" },
   { id: 3, path: "/profileview", icon: "users", label: "Profile" },
   { id: 4, path: "/help", icon: "help-circle", label: "Help" },
+  { id: 5, path: "/login", icon: "log-out", label: "Logout" },
 ];

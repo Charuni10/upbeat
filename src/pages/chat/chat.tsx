@@ -56,7 +56,7 @@ export const Chatbot: React.FC = () => {
           borderRadius="lg"
           p={4}
           overflowY="auto"
-          maxHeight="70vh"
+          maxHeight="85vh"
           boxShadow="sm"
           style={{
             backgroundColor: "#f4f4f4",
@@ -68,8 +68,8 @@ export const Chatbot: React.FC = () => {
             <Flex
               key={message.id}
               justify={message.isUser ? "flex-end" : "flex-start"}
-              mb={2}
-              ml={90}
+              mb={10}
+              className="text"
             >
               <Text
                 borderRadius="20px"
