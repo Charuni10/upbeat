@@ -25,6 +25,10 @@
   overflow: hidden;
 }
 
+.input {
+  width: inherit;
+}
+
 @media screen and (max-width: 600px) {
   .chatbox {
     margin-left: 0px;
@@ -60,6 +64,10 @@
     margin: 0 auto;
     width: inherit;
     overflow: hidden;
-    padding: 15px 0 !important;
+    padding: 15px 10px !important;
+  }
+
+  .input {
+    width: 150px;
   }
 }

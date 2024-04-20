@@ -107,6 +107,7 @@ export const Chatbot: React.FC = () => {
             flex="1"
             mr={2}
             m={20}
+            className="input"
           />
           <Box ml={-10} pr={20}>
             <SendIcon
