@@ -1,6 +1,7 @@
 .chatbox {
   margin-left: 90px;
   margin-bottom: 20px;
+  width: 93%;
 }
 
 .chat {
@@ -18,10 +19,29 @@
   overflow: hidden;
 }
 
+.chat-container {
+  height: 100vh;
+  background-color: #f4f4f4;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 600px) {
   .chatbox {
-    margin-left: 0px;
+    margin-left: 20px;
     padding-bottom: 25px !important;
+    width: 300px;
+    overflow: hidden;
+  }
+
+  .chat-container {
+    height: 100vh;
+    width: inherit;
+    overflow: hidden;
+  }
+
+  .chat1 {
+    width: inherit;
+    overflow: hidden;
   }
 
   .chat {
@@ -37,9 +57,8 @@
 
   .intimate {
     font-size: xx-small !important;
-
     margin: 0 auto;
-    width: 99.7%;
+    width: inherit;
     overflow: hidden;
     padding: 15px 0 !important;
   }

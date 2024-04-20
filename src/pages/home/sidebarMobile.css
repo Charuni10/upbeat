@@ -97,5 +97,6 @@
   .mobileNav {
     display: block;
     background-color: transparent;
+    width: 350px;
   }
 }

@@ -46,23 +46,20 @@ export const Chatbot: React.FC = () => {
   };
 
   return (
-    <>
+    <Box className="chat-container">
       <Navbar />
       <SidebarMobile />
-      <Box p={4} h="100vh" className="chat" w={"100%"}>
-        {/* Set full screen height */}
+      <Box py={4} className="chat">
         <Box
-          borderWidth="1px"
           borderRadius="lg"
           p={4}
-          overflowY="auto"
-          maxHeight="85vh"
           boxShadow="sm"
           style={{
             backgroundColor: "#f4f4f4",
             padding: "20px",
           }}
           mt={50}
+          className="chat1"
         >
           {messages.map((message) => (
             <Flex
@@ -88,13 +85,11 @@ export const Chatbot: React.FC = () => {
           mt={4}
           mb={10}
           pos="absolute"
-          insetX="0"
           bottom={5}
           py={16}
           px={2}
           className="chatbox"
         >
-          {/* Positioned at bottom */}
           <Input
             placeholder="Type a message..."
             value={inputText}
@@ -113,7 +108,7 @@ export const Chatbot: React.FC = () => {
             mr={2}
             m={20}
           />
-          <Box ml={-10} mr={20}>
+          <Box ml={-10} pr={20}>
             <SendIcon
               size={"2rem"}
               cursor="pointer"
@@ -135,6 +130,6 @@ export const Chatbot: React.FC = () => {
           They're usually pretty accurate, but not perfect!
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
