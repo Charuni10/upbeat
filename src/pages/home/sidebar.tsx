@@ -10,7 +10,7 @@ const Sidebar = () => {
 
   return (
     <div>
-      <nav className="navbar">
+      <nav className="navbar" style={{ zIndex: "999" }}>
         <ul className="navbar__menu">
           {menuItems.map((item: any) => (
             <li

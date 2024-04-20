@@ -49,7 +49,7 @@ export const Chatbot: React.FC = () => {
     <>
       <Navbar />
       <SidebarMobile />
-      <Box p={4} h="100vh" bg="#f4f4f4" className="chat">
+      <Box p={4} h="100vh" className="chat" w={"100%"}>
         {/* Set full screen height */}
         <Box
           borderWidth="1px"
@@ -86,10 +86,11 @@ export const Chatbot: React.FC = () => {
         </Box>
         <Flex
           mt={4}
+          mb={10}
           pos="absolute"
           insetX="0"
-          bottom="0"
-          py={4}
+          bottom={5}
+          py={16}
           px={2}
           className="chatbox"
         >
@@ -121,6 +122,18 @@ export const Chatbot: React.FC = () => {
             />
           </Box>
         </Flex>
+        <Box
+          fontSize={"x-small"}
+          color={"gray"}
+          pos={"absolute"}
+          bottom={2}
+          py={17}
+          className="intimate"
+          backgroundColor={"#f4f4f4"}
+        >
+          I'm an AI chatbot using machine learning model to generate responses.
+          They're usually pretty accurate, but not perfect!
+        </Box>
       </Box>
     </>
   );

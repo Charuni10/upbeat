@@ -149,7 +149,7 @@ input[type="button"] {
   .ProfileFormPart1,
   .ProfileFormPart2,
   .ProfileFormPart3 {
-    max-width: 350px;
+    max-width: 330px;
     padding: 5px 10px;
     background-color: #f7f7f7;
     border-radius: 8px;
