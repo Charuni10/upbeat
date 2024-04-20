@@ -9,6 +9,7 @@ export function ProfileView() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState<any>(null);
   const [profileData, setProfileData] = useState<any>(null);
+  const [disorderData, setDisorderData] = useState<any>(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -59,10 +60,35 @@ export function ProfileView() {
         console.error("Error fetching profile data :", error);
       }
     };
+    const fetchDisorderData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await fetch(
+          " https://upbeat-8f6t.onrender.com/mental_health/mental_health",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setDisorderData(data);
+        } else {
+          console.error("Failed to fetch disorder data");
+        }
+      } catch (error) {
+        console.error("Error fetching disorder data :", error);
+      }
+    };
+    
     fetchUserData();
     fetchProfileData();
+    fetchDisorderData();
   }, []);
-console.log(userData,profileData)
+console.log(disorderData[0])
   return (
     <>
       <Nav />
@@ -91,6 +117,9 @@ console.log(userData,profileData)
             </p>
             <p>
               <strong>Report frequency :</strong> {profileData && profileData.profile.appointment_frequency}
+            </p>
+            <p>
+              <strong>Disorder (Might not be accurate) :</strong> {disorderData && disorderData[0].prediction}
             </p>
             {/* Add more profile details as needed */}
           </div>
