@@ -23,7 +23,7 @@ export async function main(query: string): Promise<string> {
     });
   
     const output = response.choices[0].message.content;
-    console.log(output);
+    // console.log(output);
     return output || "";
   }
   

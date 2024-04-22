@@ -10,7 +10,7 @@ export function Classify() {
 
     if (storedFormData) {
       const parsedFormData = JSON.parse(storedFormData);
-      console.log(parsedFormData); // Log the retrieved data to the console
+      // console.log(parsedFormData); // Log the retrieved data to the console
 
       // Personal Information
       const personalInformation = {

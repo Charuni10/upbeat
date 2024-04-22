@@ -25,7 +25,7 @@ export function Login() {
     const storedData = localStorage.getItem("classifyFormData");
     if (storedData) {
       const parsedData = JSON.parse(storedData);
-      console.log(parsedData);
+      // console.log(parsedData);
       setParsedData(parsedData);
     } else {
       console.log("No data found in local storage");
@@ -34,7 +34,7 @@ export function Login() {
     const storedFormData = localStorage.getItem("profileFormData");
     if (storedFormData) {
       const parsedFormData = JSON.parse(storedFormData);
-      console.log(parsedFormData);
+      // console.log(parsedFormData);
       // Set state variables with parsed form data
       setPersonalInformation({
         dob: parsedFormData.dob,
@@ -78,7 +78,7 @@ export function Login() {
       if (response.ok) {
         const data = await response.json(); // Parse the response body as JSON
         const token = data.access_token; // Assuming the response includes a 'token' field
-        console.log("token", token);
+        // console.log("token", token);
         // Store the token in localStorage or sessionStorage for future use
         localStorage.setItem("token", token);
         if (parsedData){
