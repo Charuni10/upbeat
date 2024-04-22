@@ -33,7 +33,7 @@ export function Home() {
     setRating(value);
   };
   const handleSubmit = () => {
-    console.log("Rating:", rating);
+    // console.log("Rating:", rating);
     setRating(0);
   };
 

@@ -88,7 +88,6 @@ export function ProfileView() {
     fetchProfileData();
     fetchDisorderData();
   }, []);
-console.log(disorderData[0])
   return (
     <>
       <Nav />
