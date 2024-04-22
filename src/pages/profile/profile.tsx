@@ -228,7 +228,7 @@ function ProfileFormPart3({
 
   const handleSubmit = () => {
     // Save form data to local storage
-    alert(JSON.stringify(formData));
+    // alert(JSON.stringify(formData));
 
     localStorage.setItem("profileFormData", JSON.stringify(formData));
 
