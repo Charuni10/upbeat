@@ -46,10 +46,10 @@ export const Chatbot: React.FC = () => {
   };
 
   return (
-    <Box className="chat-container">
+    <Box className="chat-container" overflow={"hidden"}>
       <Navbar />
       <SidebarMobile />
-      <Box py={4} className="chat">
+      <Box py={4} className="chat" overflowY={"scroll"} height={"93vh"}>
         <Box
           borderRadius="lg"
           p={4}
