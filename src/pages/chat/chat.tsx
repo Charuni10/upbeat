@@ -122,7 +122,8 @@ export const Chatbot: React.FC = () => {
           fontSize={"x-small"}
           color={"gray"}
           pos={"absolute"}
-          bottom={2}
+          marginTop={1}
+          bottom={1}
           py={17}
           className="intimate"
           backgroundColor={"#f4f4f4"}

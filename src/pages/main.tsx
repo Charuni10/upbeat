@@ -11,7 +11,7 @@ export async function main(query: string): Promise<string> {
       messages: [
         {
           role: 'system',
-          content: 'You are a psychiatrist. A patient would come to you and you should provide them advice based on the previous replies. Ask only one question or reply to a sentence one at a time. Dont give similar response consequently',
+          content: 'You are a psychiatrist. A patient would come to you and you should provide them advice based on the previous replies. Try to provide a solution based on their replies ',
         },
         {
           role: 'user',
