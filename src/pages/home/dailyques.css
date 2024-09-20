@@ -1,0 +1,80 @@
+
+  .Classify {
+    width: 500px;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Classify h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .Classify form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .Classify label {
+    color: #0056b3;
+    margin-bottom: 0px;
+    text-align: left;
+  }
+  .yes,
+  .no {
+    color: #000 !important;
+  }
+  
+  .Classify input[type="radio"],
+  .Classify input[type="checkbox"],
+  .Classify select {
+    margin-bottom: 5px;
+  }
+  
+  .Classify input[type="radio"],
+  .Classify input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .Classify select,
+  .Classify input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .Classify button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+  }
+  
+  .Classify button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .Classify {
+      width: 320px;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  
+  

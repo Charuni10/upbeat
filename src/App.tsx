@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Profile } from "./pages/profile/profile";
 import { Classify } from "./pages/profile/classify";
 import { ProfileView } from "./pages/profileView/profileView";
+import { DailyQues } from "./pages/home/dailyques";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/profile" element={<Profile />}/>
             <Route path="/classify" element={<Classify/>}/>
             <Route path="/profileview" element={<ProfileView/>}/>
+            <Route path="/dailyques" element={<DailyQues/>}/>
           </Routes>
         </BrowserRouter>
       </div>
