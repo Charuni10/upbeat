@@ -7,22 +7,25 @@ import { Profile } from "./pages/profile/profile";
 import { Classify } from "./pages/profile/classify";
 import { ProfileView } from "./pages/profileView/profileView";
 import { DailyQues } from "./pages/home/dailyques";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
     <div className="App">
       <div>
         <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/chat" element={<Chatbot />} />
-            <Route path="/profile" element={<Profile />}/>
-            <Route path="/classify" element={<Classify/>}/>
-            <Route path="/profileview" element={<ProfileView/>}/>
-            <Route path="/dailyques" element={<DailyQues/>}/>
-          </Routes>
+          <ChakraProvider>
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/chat" element={<Chatbot />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/classify" element={<Classify />} />
+              <Route path="/profileview" element={<ProfileView />} />
+              <Route path="/dailyques" element={<DailyQues />} />
+            </Routes>
+          </ChakraProvider>
         </BrowserRouter>
       </div>
     </div>
