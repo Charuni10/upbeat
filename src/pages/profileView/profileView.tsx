@@ -16,7 +16,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          " https://upbeat-8f6t.onrender.com/profile/user_details",
+          "https://upbeat-backup.onrender.com/profile/user_details",
           {
             method: "GET",
             headers: {
@@ -41,7 +41,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          " https://upbeat-8f6t.onrender.com/profile/profile_details",
+          "https://upbeat-backup.onrender.com/profile/profile_details",
           {
             method: "GET",
             headers: {
@@ -64,7 +64,7 @@ export function ProfileView() {
       try {
         const token = localStorage.getItem("token");
         const response = await fetch(
-          " https://upbeat-8f6t.onrender.com/mental_health/mental_health",
+          "https://upbeat-backup.onrender.com/mental_health/mental_health",
           {
             method: "GET",
             headers: {

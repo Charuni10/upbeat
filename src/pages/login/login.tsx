@@ -68,7 +68,7 @@ export function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(" https://upbeat-8f6t.onrender.com/user/login", {
+      const response = await fetch("https://upbeat-backup.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -125,39 +125,44 @@ export function Login() {
 
     return true;
   };
-
+ 
   const handleSignUp = async () => {
+    
     if (!validateSignUp()) {
       return;
     }
-
+    
     try {
-      const response = await fetch(" https://upbeat-8f6t.onrender.com/user/signup", {
+      const response = await fetch("https://upbeat-backup.onrender.com/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          email,
+          username: username,
+          email: email,
           phone_number: phoneNumber,
-          password,
+          hashed_password: password,
         }),
       });
+    
       if (response.ok) {
         navigate("/profile");
       } else {
-        alert("Signup failed. Please try again.");
+        const errorData = await response.json(); // Get detailed error message
+        console.error("Error Response:", errorData); // Log the error response
+        alert(`Signup failed: ${errorData.message || "Please try again."}`); // Show user-friendly message
       }
     } catch (error) {
       console.error("Error:", error);
+      alert("An unexpected error occurred. Please try again."); // General error message
     }
-  };
+  }    
 
   const sendUserData = (token: string) => {
     // Send personal information
     setTimeout(() => {
-      fetch("https://upbeat-8f6t.onrender.com/profile/profile", {
+      fetch("https://upbeat-backup.onrender.com/profile/profile", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -174,7 +179,7 @@ export function Login() {
   
     // Send emergency contact information
     setTimeout(() => {
-      fetch("https://upbeat-8f6t.onrender.com/profile/emergency_contact", {
+      fetch("https://upbeat-backup.onrender.com/profile/emergency_contact", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -196,7 +201,7 @@ export function Login() {
   
     // Send doctor information
     setTimeout(() => {
-      fetch("https://upbeat-8f6t.onrender.com/profile/doctor_details", {
+      fetch("https://upbeat-backup.onrender.com/profile/doctor_details", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -213,7 +218,7 @@ export function Login() {
   
     // Send test information
     setTimeout(() => {
-      fetch("https://upbeat-8f6t.onrender.com/mental_health/classify", {
+      fetch("https://upbeat-backup.onrender.com/mental_health/classify", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
