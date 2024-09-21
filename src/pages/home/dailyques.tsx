@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./dailyques.css";
 
-export function DailyQues() {
+export function DailyQues({ isPopup }: { isPopup?: boolean }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     cry_today: "",
@@ -64,9 +64,8 @@ export function DailyQues() {
   };
 
   return (
-    <div className="Classify">
-      <h1>Daily Questions</h1>
-
+    <div className={isPopup ? "popup" : "questions"}>
+      {!isPopup ? <h1>Daily Questions</h1> : <></>}
       {/* Show form only if it's after 8 PM and not completed */}
       {isFormVisible && !isFormCompleted ? (
         <form onSubmit={handleSubmit} style={{ padding: "10px 30px" }}>
@@ -93,7 +92,6 @@ export function DailyQues() {
             No
           </label>
           <br />
-
           <label>Did you have a panic attack today?</label>
           <br />
           <label>
@@ -117,7 +115,6 @@ export function DailyQues() {
             No
           </label>
           <br />
-
           <label>Were you happy today?</label>
           <br />
           <label>
@@ -141,7 +138,6 @@ export function DailyQues() {
             No
           </label>
           <br />
-
           <label>Did you argue with anyone today?</label>
           <br />
           <label>
@@ -165,7 +161,6 @@ export function DailyQues() {
             No
           </label>
           <br />
-
           <label>How is your mood today?</label>
           <br />
           <select
@@ -180,7 +175,6 @@ export function DailyQues() {
             <option value="Neutral">Neutral</option>
           </select>
           <br />
-
           <button type="submit">Submit</button>
         </form>
       ) : isFormCompleted ? (
