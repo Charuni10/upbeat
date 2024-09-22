@@ -99,10 +99,10 @@ export const Chatbot: React.FC = () => {
         </Box>
         <Flex
           mt={4}
-          mb={10}
+          // mb={10}
           pos="absolute"
-          bottom={5}
-          py={16}
+          bottom={0}
+          // py={16}
           px={2}
           className="chatbox"
         >
@@ -122,15 +122,16 @@ export const Chatbot: React.FC = () => {
             outline="none"
             flex="1"
             mr={2}
-            m={20}
-            className="input"
+            // m={20}
+            className="chat-input"
           />
-          <Box ml={-10} pr={20}>
+          <Box ml={-10} className="icon-box">
             <SendIcon
               size={"2rem"}
               cursor="pointer"
               onClick={handleSendMessage}
-              style={{ color: "#5995fd", marginTop: "30px" }}
+              style={{ color: "#5995fd" }}
+              className="send-icon"
             />
           </Box>
         </Flex>
