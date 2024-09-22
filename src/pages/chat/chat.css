@@ -1,7 +1,7 @@
 .chatbox {
-  margin-left: 90px;
-  margin-bottom: 20px;
-  width: 93%;
+  margin-left: 150px;
+  /* margin-bottom: 20px; */
+  width: 90%;
 }
 
 .chat {
@@ -25,20 +25,33 @@
   overflow: hidden;
 }
 
-.input {
+.chat-input {
   width: inherit;
+  margin: 20;
+}
+
+.send-icon {
+  margin-top: 0px !important;
+  margin-left: 50px;
+  position: relative;
+  top: 5px;
+  margin-bottom: 80px; /* Slight adjustment for vertical centering */
+}
+
+.icon-box {
+  padding-right: 40px;
 }
 
 @media screen and (max-width: 600px) {
   .chatbox {
     margin-left: 0px;
-    padding-bottom: 25px !important;
-    width: 320px;
+    padding: 0 10px;
+    width: 100%;
     overflow: hidden;
   }
 
   .chat-container {
-    height: 80vh;
+    height: 100vh;
     width: inherit;
     overflow: hidden;
   }
@@ -67,7 +80,21 @@
     padding: 15px 10px !important;
   }
 
-  .input {
-    width: 250px;
+  .chat-input {
+    width: calc(100% - 50px);
+    margin: 0;
+  }
+
+  .send-icon {
+    margin-top: 0px !important;
+    margin-left: 45px;
+    position: relative;
+    top: 5px;
+    margin-bottom: 80px;
+    margin-right: 0px;
+  }
+
+  .icon-box {
+    padding-right: 0px;
   }
 }
