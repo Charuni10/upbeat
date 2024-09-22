@@ -1,9 +1,7 @@
-import OpenAI from 'openai';
+import Together from 'together-ai';
 
-const client = new OpenAI({
-  apiKey: '56b8e846be31545fc9af12ef026bd002d4ed5f8333cd7d7e31eafb30c84591ec',
-  baseURL: 'https://api.together.xyz/v1',
-  dangerouslyAllowBrowser: true,
+const client = new Together({
+  apiKey: '77fbc02ed1ca42e2e7b74d20c7c78c56702e27e86de2a8bc9b69bf821f027015',
 });
 
 export async function main(query: string): Promise<string> {
@@ -20,10 +18,10 @@ export async function main(query: string): Promise<string> {
       ],
       model: 'togethercomputer/llama-2-13b-chat',
       max_tokens: 100,
+      
     });
-  
-    const output = response.choices[0].message.content;
-    // console.log(output);
-    return output || "";
+
+    const output = response?.choices?.[0]?.message?.content || 'No response from the AI';
+    return output; 
   }
   

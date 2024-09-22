@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Box, Input, Flex, Text } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
-import { main } from "../main";
 import Navbar from "../home/sidebar";
 import "./chat.css";
 import SidebarMobile from "../home/sidebarMobile";
@@ -16,6 +15,23 @@ export const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState("");
 
+  const getBotResponse = async (query: string): Promise<string> => {
+    const response = await fetch('https://upbeat-backup.onrender.com/chatbot', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ query }),  // Sending the input as JSON
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    return data.response; // Adjust this based on the response structure you expect
+  };
+
   const handleSendMessage = async () => {
     if (inputText.trim() !== "") {
       const newUserMessage: Message = {
@@ -27,8 +43,8 @@ export const Chatbot: React.FC = () => {
       setMessages([...messages, newUserMessage]); // Add user message to state
 
       try {
-        // Get response from the bot
-        const botResponseText = await main(inputText);
+        // Get response from the bot using fetch
+        const botResponseText = await getBotResponse(inputText);
 
         const botResponse: Message = {
           id: messages.length + 1,
@@ -128,7 +144,7 @@ export const Chatbot: React.FC = () => {
           className="intimate"
           backgroundColor={"#f4f4f4"}
         >
-          I'm an AI chatbot using machine learning model to generate responses.
+          I'm an AI chatbot using a machine learning model to generate responses.
           They're usually pretty accurate, but not perfect!
         </Box>
       </Box>

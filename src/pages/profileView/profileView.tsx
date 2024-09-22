@@ -40,6 +40,7 @@ export function ProfileView() {
     const fetchProfileData = async () => {
       try {
         const token = localStorage.getItem("token");
+        console.log(token);
         const response = await fetch(
           "https://upbeat-backup.onrender.com/profile/profile_details",
           {
