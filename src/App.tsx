@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter>
           <ChakraProvider>
             <Routes>
-              <Route index element={<Home />} />
+              <Route index element={<Login/>} />
               <Route path="/home" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/chat" element={<Chatbot />} />
